@@ -51,14 +51,14 @@ function CodeBlock({ content }: CodeBlockProps) {
         Copied!
       </span>
       <span
-        className={`absolute top-2 right-10 z-40  transition-opacity duration-200 ease-in-out
+        className={`absolute top-2 right-2.5 z-40  transition-opacity duration-200 ease-in-out
           ${isHover ? 'opacity-100' : 'opacity-0'}
         `}
       >
         <button
           onClick={handleClick}
           type="button"
-          className="p-1 fixed bg-zinc-600/50 rounded
+          className="p-1 sticky top-0 right-0 bg-zinc-600/50 rounded
           
           "
         >
