@@ -18,7 +18,7 @@ function Header() {
         <span className="h-0.5 w-5 bg-black dark:bg-white"></span>
       </button>
       <nav
-        className={`pt-16 pb-5 absolute top-9 flex flex-col items-end gap-5 bg-zinc-50 border  rounded-2xl overflow-hidden transition-all duration-150 ease-in-out 
+        className={`pt-16 pb-5 absolute top-9 flex flex-col items-end gap-5 bg-zinc-50 border  rounded-2xl overflow-hidden z-40 transition-all duration-150 ease-in-out 
             lg:hidden
             dark:bg-zinc-950 
             ${
