@@ -1,5 +1,11 @@
+import Heading from '../components/Heading';
+
 function Php() {
-  return <h1 className="font-light text-6xl">Php</h1>;
+  return (
+    <>
+      <Heading title="php" />
+    </>
+  );
 }
 
 export default Php;
