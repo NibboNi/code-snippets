@@ -11,28 +11,34 @@ function CodeBlock({ content }: CodeBlockProps) {
   const [isHover, setIsHover] = useState(false);
 
   const handleClick = async () => {
-    try {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        await navigator.clipboard.writeText(content);
-      } else {
-        // Fucking chat gpt hack/fix because it seems that we haven't evolved past the point of making the copy functionality easy to implement for both desktop and mobile devices - fuck you internet
-        const textarea = document.createElement('textarea');
-        textarea.value = content;
-        textarea.style.position = 'fixed';
-        textarea.style.opacity = '0';
-        document.body.appendChild(textarea);
-        textarea.focus();
-        textarea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textarea);
-      }
-      setCopySuccess(true);
-      setTimeout(() => {
-        setCopySuccess(false);
-      }, 1200);
-    } catch (err) {
-      console.error('Failed to copy snippet content: ', err);
-    }
+    // If this work I shall left the commented code as a remainder of what I had to "do" in order the implement a functionality that is already native just because I didn't spend 5 minutes in order to read and inform myself about it's correct implementation
+    await navigator.clipboard.writeText(content);
+    setCopySuccess(true);
+    setTimeout(() => {
+      setCopySuccess(false);
+    }, 1200);
+    // try {
+    //   if (navigator.clipboard && navigator.clipboard.writeText) {
+    //     await navigator.clipboard.writeText(content);
+    //   } else {
+    //     // Fucking chat gpt hack/fix because it seems that we haven't evolved past the point of making the copy functionality easy to implement for both desktop and mobile devices - fuck you internet
+    //     const textarea = document.createElement('textarea');
+    //     textarea.value = content;
+    //     textarea.style.position = 'fixed';
+    //     textarea.style.opacity = '0';
+    //     document.body.appendChild(textarea);
+    //     textarea.focus();
+    //     textarea.select();
+    //     document.execCommand('copy');
+    //     document.body.removeChild(textarea);
+    //   }
+    //   setCopySuccess(true);
+    //   setTimeout(() => {
+    //     setCopySuccess(false);
+    //   }, 1200);
+    // } catch (err) {
+    //   console.error('Failed to copy snippet content: ', err);
+    // }
   };
 
   return (
@@ -51,7 +57,7 @@ function CodeBlock({ content }: CodeBlockProps) {
         Copied!
       </span>
       <span
-        className={`absolute top-2 right-2.5 z-40  transition-opacity duration-200 ease-in-out
+        className={`absolute top-2 right-2.5 z-30  transition-opacity duration-200 ease-in-out
           ${isHover ? 'opacity-100' : 'opacity-0'}
         `}
       >
